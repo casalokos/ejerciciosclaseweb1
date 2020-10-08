@@ -40,10 +40,10 @@
                     <form class="mt-4" action="index.php" method="POST">
                         <div class="row">
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Producto1" name="producto1">
+                                <input type="text" class="form-control" placeholder="num1" name="NUM1">
                             </div>
                             <div class="col">
-                                <input type="text" class="form-control" placeholder="Precio1($)" name="precio1">
+                                <input type="text" class="form-control" placeholder="num2" name="NUM2">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary mt-2 btn-block" name="botonCalcular">Calcular</button>
@@ -53,23 +53,144 @@
                        
                     
                        
-                        <h4 class="display-1">
+                        <h4 >
                             <?php
-                              $precioProducto1=$_POST["precio1"];
-                              $nombreProducto1=$_POST["producto1"];
+                              $NUMERO1=$_POST["NUM1"];
+                              $NUMERO2=$_POST["NUM2"];
 
                               
   
-                              $costoEnvio=5000;
+                              
   
-                              $total=$precioProducto1+$costoEnvio;
+                              $totalSUMA=$NUMERO1+$NUMERO2;
+                              $TORTALRESTA=$NUMERO1-$NUMERO2;
+                              $TOTALMULTI=$NUMERO1*$NUMERO2;
+
                              
-                              echo("El total de su compra es de: ".$total);
+                              echo("LA SUMA DE LOS NUMEROS ES :".$totalSUMA);
+                              echo("LA RESTA DE LOS NUMEROS ES: ".$TORTALRESTA);
+                              echo("LA MULTIPLICACION DE LOS NUMEROS E".$TOTALMULTI);
                             ?>
                         </h4>
                     
                     <?php endif ?>
+
+
+                    <h1>TIENDA PARA SPRING STEP</H1>
+
+
+                    <form class="mt-4" action="index.php" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="CANTIDADZP" name="ZAPATOS">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="VALORUNI" name="VLORZA">
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 btn-block" name="CALCULAR">DESCUENTO</button>
+                    </form>
+
+                    <?php if(isset($_POST["CALCULAR"])): ?>
+                       
                     
+                       
+                       <h4 >
+                           <?php
+                             $ZAPATOSCA=$_POST["ZAPATOS"];
+                             $valorza=$_POST["VLORZA"];
+                             $descuento;
+
+                             
+ 
+                             
+ 
+                             $valortotal=$valorza*$ZAPATOSCA;
+
+                             if($ZAPATOSCA == 3){
+                                 $descuento= $valortotal/100*10;
+                                 $valortotal=$valortotal-$descuento;
+
+                             }
+                             else if($ZAPATOSCA >3 && $ZAPATOSCA <=8 ){
+                                 $descuento= $valortotal/100*20;
+                                 $valortotal=$valortotal-$descuento;
+                             }
+
+                                 else if($ZAPATOSCA > 8){
+                                     $descuento=$valortotal/100*50;
+                                     $valortotal=$valortotal-$descuento;
+                                 }
+                                 else{
+                                     $valortotal=$valortotal;
+                                     
+                                 }
+
+                             
+
+                            
+                             echo("<p>el valor de los zapatos por unidad es: </p> <strong>".$valorza . "</strong> <br>" );
+                             echo("<p>el valor total es de: </p> <strong>".$valortotal . "</strong> <br>" );
+
+                             
+                             
+                           ?>
+                       </h4>
+                   
+                   <?php endif ?>
+
+
+
+
+                   <h1>VALOR HORA DE TRABAJA</H1>
+                   <form class="mt-4" action="index.php" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="HORASTRABAJADAS" name="HORASTR">
+                            </div>
+                            
+                        </div>
+                        <button type="submit" class="btn btn-primary mt-2 btn-block" name="HORASTRA">HORAEXTRA</button>
+                    </form>
+
+                    <?php if(isset($_POST["HORASTRA"])): ?>
+                       
+                    
+                       
+                       <h4 >
+                           <?php
+                             $HORASTRAB=$_POST["HORASTR"];
+                             $VALORHO;
+                             $TOTALEXTRAS;
+                             
+
+                             
+ 
+                             
+ 
+                             
+
+                             if($HORASTRAB == 40){
+                                 $VALORHO = 20000;
+
+
+                             }
+                             else if($HORASTRAB > 40 ){
+                                $VALORHO= 25000;
+                             }
+
+                                 $TOTALEXTRAS=$HORASTRAB*$VALORHO;
+                                 echo("<p>EL VALOR DE LA HORA EXTRA ES: </p> <strong>".$VALORHO . "</strong> <br>" );
+                                 echo("<p>EL VALOR GANADO TOTAL EDE EXTRAS ES : </p> <strong>".$TOTALEXTRAS . "</strong> <br>" );
+                                 
+    
+                                 
+                                 
+                               ?>
+                           </h4>
+                       
+                       <?php endif ?>
+    
 
                 </div>
             </div>
@@ -87,15 +208,4 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>  
 </body>
 </html>
-© 2020 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Help
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+
