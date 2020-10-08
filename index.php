@@ -48,6 +48,11 @@
                         </div>
                         <button type="submit" class="btn btn-primary mt-2 btn-block" name="botonCalcular">Calcular</button>
                     </form>
+                    <?php
+  $arraynom = [];
+  $arraytel  = [];
+  $arraydire = [];
+                    ?>
 
                     <?php if(isset($_POST["botonCalcular"])): ?>
                        
@@ -182,6 +187,82 @@
                                  $TOTALEXTRAS=$HORASTRAB*$VALORHO;
                                  echo("<p>EL VALOR DE LA HORA EXTRA ES: </p> <strong>".$VALORHO . "</strong> <br>" );
                                  echo("<p>EL VALOR GANADO TOTAL EDE EXTRAS ES : </p> <strong>".$TOTALEXTRAS . "</strong> <br>" );
+                                 
+    
+                                 
+                                 
+                               ?>
+                           </h4>
+                       
+                       <?php endif ?>
+
+                       <h1>APLICATIVA BANCOLOMBIA</H1>
+                       <form class="mt-4" action="index.php" method="POST">
+                        <div class="row">
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="NOMBRE" name="NOMBRE">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="TELEFONO" name="TELEFONO">
+                            </div>
+                            <div class="col">
+                                <input type="text" class="form-control" placeholder="DIRECCION" name="DIRECCION">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn btn-primary mt-2 btn-block" name="BANCOLOMBIA">AGREGAR EMPLEADO</button>
+                    </form>
+
+
+                    <?php if(isset($_POST["BANCOLOMBIA"])): ?>
+                       
+                    
+                       
+                       <h4 >
+                           <?php
+
+                              
+                            
+
+                            $nombre=$_POST["NOMBRE"];
+                            $telefono=$_POST["TELEFONO"];
+                            $direccion=$_POST["DIRECCION"];
+
+                             echo("<table> <thead> <tr> <th>nombre empleado</th>   <th> telefono empleado</th>   <th>telefono empleado </th> </tr>  </thead> "); 
+
+                             echo ("<tbody>");
+                             array_push($arraynom, $nombre);
+                             array_push($arraytel, $telefono);
+                             array_push($arraydire, $direccion);
+                          $tamañoarray = count($arraynom);
+                          define('i', 0);
+                          for ($i=0; $i < $tamañoarray ; $i++) { 
+                             echo("<tr> <td>".$arraynom[i]."</td>  <td> ".$arraytel[i]."</td> <td> ".$arraydire[i]."</td>   </tr>" );
+
+                             
+                             
+                          }       
+                           
+                             echo ("</tbody> </table>");
+
+
+                             
+                             
+
+
+
+
+
+                            
+                             
+
+                             
+ 
+                             
+ 
+                             
+
+                             
                                  
     
                                  
